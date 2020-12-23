@@ -64,15 +64,6 @@ public class Intro {
 		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='COK']"))
 				.click();
 
-		// "//div[@id='ctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='ATQ']"
-		/*
-		 * driver.findElement(By.linkText("Practice Projects")).click();
-		 * driver.findElement(By.id("name")).sendKeys("Tester");
-		 * driver.findElement(By.id("email")).sendKeys("Tester@gmail.com");
-		 * driver.findElement(By.xpath("//input[@id='agreeTerms']")).click();
-		 * driver.findElement(By.cssSelector("#form-submit")).click();
-		 */
-
 		driver.quit();
 
 	}
