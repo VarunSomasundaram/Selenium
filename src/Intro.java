@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class Intro {
 
@@ -18,6 +19,32 @@ public class Intro {
 		System.out.println(driver.getTitle());
 		System.out.println(driver.getCurrentUrl());
 		// driver.quit();
+
+		Thread.sleep(1000);
+		driver.findElement(By.id("autosuggest")).sendKeys("Au");
+		Thread.sleep(1000);
+		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+
+		for (WebElement option : options) {
+
+			if (option.getText().equalsIgnoreCase("Macau")) {
+				option.click();
+				break;
+			}
+		}
+
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='ATQ']"))
+				.click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='COK']"))
+				.click();
+
+		// driver.quit();
+
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("a.ui-state-default.ui-state-highlight")).click();
 
 		driver.findElement(By.id("divpaxinfo")).click();
 		Thread.sleep(1000);
@@ -43,28 +70,15 @@ public class Intro {
 		Select currency = new Select(driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")));
 		currency.selectByValue("AED");
 
-		Thread.sleep(1000);
-		driver.findElement(By.id("autosuggest")).sendKeys("Au");
-		Thread.sleep(1000);
-		List<WebElement> options = driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
+		driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
 
-		for (WebElement option : options) {
+		String opacity = driver.findElement(By.id("Div1")).getAttribute("style");
 
-			if (option.getText().equalsIgnoreCase("Macau")) {
-				option.click();
-				break;
-			}
-		}
-
-		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_originStation1_CTNR'] //a[@value='ATQ']"))
-				.click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='COK']"))
-				.click();
-
-		driver.quit();
+		Assert.assertTrue(opacity.contains("0.5"));
+		
+		driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
+		
+		//driver.quit();
 
 	}
 
