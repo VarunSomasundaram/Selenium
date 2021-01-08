@@ -1,17 +1,32 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class CalendarHandling {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
+		//SSL & Insecure Certification Accept
+		DesiredCapabilities c = DesiredCapabilities.chrome();
+		c.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+		c.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+		
+		ChromeOptions ch = new ChromeOptions();
+		ch.merge(c);
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver(ch);
 
 		driver.get("https://www.spicejet.com/");
 
@@ -24,8 +39,8 @@ public class CalendarHandling {
 				.click();
 		Thread.sleep(1000);
 		// Calendar Handling for Given Date
-		String expectedMonth = "October";
-		String expectedDay = "16";
+		String expectedMonth = "July";
+		String expectedDay = "4";
 		String expectedYear = "2021";
 		/*WebElement calendarMonth = driver.findElement(By.cssSelector(
 				"div.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-left span.ui-datepicker-month"));
@@ -59,6 +74,10 @@ public class CalendarHandling {
 			}
 		}
 
+		//Screenshot 
+	File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE );
+	FileUtils.copyFile(screenshot, new File("C:\\Users\\Somas\\Selenium Screenshots\\Pass.jpeg"));
+	
 	}
 
 }
