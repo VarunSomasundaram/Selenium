@@ -1,9 +1,14 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,11 +18,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShoppingCart {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
 
 		// Implicit Wait
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -59,6 +65,11 @@ public class ShoppingCart {
 
 		driver.findElement(By.cssSelector("img[alt='Cart']")).click();
 		driver.findElement(By.xpath("//div[@class='action-block']/button")).click();
+		
+		//Screenshot 
+		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE );
+		FileUtils.copyFile(screenshot, new File("C:\\Users\\Somas\\Selenium Screenshots\\ShoppingCart1.jpeg"));
+		
 
 		pageLoad.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
 
@@ -67,6 +78,10 @@ public class ShoppingCart {
 
 		pageLoad.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoInfo")));
 		System.out.println(driver.findElement(By.cssSelector(".promoInfo")).getText());
+		
+		//Screenshot 
+		File screenshot1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE );
+		FileUtils.copyFile(screenshot1, new File("C:\\Users\\Somas\\Selenium Screenshots\\ShoppingCart2.jpeg"));
 
 		driver.findElement(By.xpath("//button[text()='Place Order']")).click();
 
@@ -74,8 +89,14 @@ public class ShoppingCart {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='wrapperTwo']/div/select")));
 		Select country = new Select(driver.findElement(By.xpath("//div[@class='wrapperTwo']/div/select")));
 		country.selectByValue("United States");
+		
+		
 
 		driver.findElement(By.xpath("//*[@class='chkAgree']")).click();
+		
+		//Screenshot 
+		File screenshot3 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE );
+		FileUtils.copyFile(screenshot3, new File("C:\\Users\\Somas\\Selenium Screenshots\\ShoppingCart3.jpeg"));
 		driver.findElement(By.xpath("//button[text()='Proceed']")).click();
 
 		driver.quit();
