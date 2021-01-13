@@ -1,3 +1,8 @@
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +18,7 @@ import org.testng.Assert;
 
 public class WindowsHandling {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, MalformedURLException, IOException {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
@@ -57,10 +62,6 @@ public class WindowsHandling {
 
 		driver.switchTo().alert().dismiss();
 
-		WebElement linkColumn = driver.findElement(By.xpath("//table[@class='gf-t']/tbody/tr/td/ul"));
-		int linkCount = linkColumn.findElements(By.tagName("a")).size();
-		String newTab = Keys.chord(Keys.CONTROL, Keys.ENTER);
-		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0,500)");
 
@@ -81,6 +82,25 @@ public class WindowsHandling {
 			priceTotal = priceTotal + Integer.parseInt(price.get(i).getText());
 		}
 		System.out.println(sum + " , " + priceTotal);
+		
+		//Broken Links Check
+		List<WebElement> pageLinks = driver.findElements(By.tagName("a"));
+		//SoftAssert a = new SoftAssert();
+		for (WebElement link : pageLinks) {
+			String url = link.getAttribute("href");
+			
+		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+		connection.connect();
+		int respCode = connection.getResponseCode();
+		
+		Assert.assertTrue(respCode<400, "The link with Text "+link.getText()+" is broken with code" +respCode);
+		}
+		
+		
+		WebElement linkColumn = driver.findElement(By.xpath("//table[@class='gf-t']/tbody/tr/td/ul"));
+		int linkCount = linkColumn.findElements(By.tagName("a")).size();
+		String newTab = Keys.chord(Keys.CONTROL, Keys.ENTER);
+		
 		for (int i = 0; i < linkCount - 1; i++) {
 			// System.out.println(linkColumn.findElements(By.xpath("//li[@class='gf-li']/a")).get(i).getText());
 			linkColumn.findElements(By.xpath("//li[@class='gf-li']/a")).get(i).sendKeys(newTab);
