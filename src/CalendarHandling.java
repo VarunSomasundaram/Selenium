@@ -1,3 +1,4 @@
+import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -13,9 +14,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+
 public class CalendarHandling {
 
-	public static void main(String[] args) throws InterruptedException, IOException {
+	@Test
+	public static void calendar() throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
 
 		//SSL & Insecure Certification Accept

@@ -1,8 +1,10 @@
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -16,9 +18,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+
 public class WindowsHandling {
 
-	public static void main(String[] args) throws InterruptedException, MalformedURLException, IOException {
+	@Test
+	public static void windowHandle() throws InterruptedException, MalformedURLException, IOException {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
@@ -74,7 +78,7 @@ public class WindowsHandling {
 		
 		int total =Integer.parseInt(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
 		
-		Assert.assertEquals(sum, total);
+		AssertJUnit.assertEquals(sum, total);
 		
 		List<WebElement> price = driver.findElements(By.xpath("//*[@class='table-display'] //td[3]"));
 		int priceTotal = 0;

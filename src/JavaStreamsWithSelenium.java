@@ -1,3 +1,4 @@
+import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,9 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
 public class JavaStreamsWithSelenium {
 
-	public static void main(String[] args) {
+	@Test(groups= {"Regression"})
+	public static void javaStream() {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
@@ -18,7 +21,7 @@ public class JavaStreamsWithSelenium {
 
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
 		String[] required = {"Cheese", "Rice", "Wheat"};
-		String filter = "C";
+		String filter = "Rice";
 		List<String> reqList = Arrays.asList(required);
 		reqList = reqList.stream().sorted().collect(Collectors.toList());
 		
@@ -56,6 +59,8 @@ public class JavaStreamsWithSelenium {
 			System.out.println("Filter is working Fine");
 		}else
 			System.out.println("Filter is NOT working");
+		
+		driver.quit();
 	}
 
 	private static String getPrice(WebElement s) {

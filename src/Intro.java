@@ -1,3 +1,5 @@
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -5,11 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+
 
 public class Intro {
 
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public static void Introduction() throws InterruptedException {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
@@ -74,11 +77,11 @@ public class Intro {
 
 		String opacity = driver.findElement(By.id("Div1")).getAttribute("style");
 
-		Assert.assertTrue(opacity.contains("0.5"));
+		AssertJUnit.assertTrue(opacity.contains("0.5"));
 		
 		driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
 		
-		//driver.quit();
+		driver.quit();
 
 	}
 

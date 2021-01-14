@@ -1,11 +1,21 @@
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+
 public class JavaStreamsPractise {
 
-	public static void main(String[] args) {
+	@BeforeSuite
+	public void beforeSuite()
+	{
+		System.out.println("First Print");
+	}
+	@Test(groups= {"Regression"})
+	public static void JavaStreamPractice() {
 		// TODO Auto-generated method stub
 		
 		List<String> names = new ArrayList<String>();
