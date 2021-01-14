@@ -32,7 +32,7 @@ public class Listeners implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("Listener Failure");
+		System.out.println("Listener Failure - " + result.getName());
 		ITestListener.super.onTestFailure(result);
 	}
 
@@ -51,7 +51,7 @@ public class Listeners implements ITestListener {
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("Listener Success");
+		System.out.println("Listener Success - " + result.getName());
 		ITestListener.super.onTestSuccess(result);
 
 	}
