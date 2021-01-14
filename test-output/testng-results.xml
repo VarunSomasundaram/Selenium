@@ -2,22 +2,22 @@
 <testng-results skipped="0" failed="0" ignored="3" total="5" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Learnings" duration-ms="20772" started-at="2021-01-14T09:18:59 PST" finished-at="2021-01-14T09:19:20 PST">
+  <suite name="Learnings" duration-ms="26542" started-at="2021-01-14T14:55:27 PST" finished-at="2021-01-14T14:55:54 PST">
     <groups>
       <group name="Regression">
-        <method signature="JavaStreamsPractise.JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@1dfe2924]" name="JavaStreamPractice" class="JavaStreamsPractise"/>
-        <method signature="JavaStreamsWithSelenium.javaStream()[pri:0, instance:JavaStreamsWithSelenium@35d176f7]" name="javaStream" class="JavaStreamsWithSelenium"/>
+        <method signature="JavaStreamsPractise.JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@6ebc05a6]" name="JavaStreamPractice" class="JavaStreamsPractise"/>
+        <method signature="JavaStreamsWithSelenium.javaStream()[pri:0, instance:JavaStreamsWithSelenium@1dfe2924]" name="javaStream" class="JavaStreamsWithSelenium"/>
       </group> <!-- Regression -->
     </groups>
-    <test name="MyTest" duration-ms="20772" started-at="2021-01-14T09:18:59 PST" finished-at="2021-01-14T09:19:20 PST">
+    <test name="MyTest" duration-ms="26542" started-at="2021-01-14T14:55:27 PST" finished-at="2021-01-14T14:55:54 PST">
       <class name="JavaStreamsPractise">
-        <test-method status="PASS" signature="JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@1dfe2924]" name="JavaStreamPractice" duration-ms="50" started-at="2021-01-14T09:18:59 PST" finished-at="2021-01-14T09:18:59 PST">
+        <test-method status="PASS" signature="JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@6ebc05a6]" name="JavaStreamPractice" duration-ms="110" started-at="2021-01-14T14:55:27 PST" finished-at="2021-01-14T14:55:27 PST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- JavaStreamPractice -->
       </class> <!-- JavaStreamsPractise -->
       <class name="JavaStreamsWithSelenium">
-        <test-method status="PASS" signature="javaStream()[pri:0, instance:JavaStreamsWithSelenium@35d176f7]" name="javaStream" duration-ms="20673" started-at="2021-01-14T09:18:59 PST" finished-at="2021-01-14T09:19:20 PST">
+        <test-method status="PASS" signature="javaStream()[pri:0, instance:JavaStreamsWithSelenium@1dfe2924]" name="javaStream" duration-ms="26302" started-at="2021-01-14T14:55:27 PST" finished-at="2021-01-14T14:55:54 PST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- javaStream -->
