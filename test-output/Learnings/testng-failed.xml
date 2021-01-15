@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Learnings]" parallel="methods">
+  <listeners>
+    <listener class-name="Listeners"/>
+  </listeners>
   <test thread-count="2" name="MyTest(failed)" parallel="methods">
+    <groups>
+      <run>
+        <include name="Regression"/>
+      </run>
+    </groups>
     <classes>
-      <class name="WindowsHandling">
+      <class name="JavaStreamsWithSelenium">
         <methods>
-          <include name="windowHandle"/>
+          <include name="javaStream"/>
         </methods>
-      </class> <!-- WindowsHandling -->
-      <class name="Intro">
-        <methods>
-          <include name="Introduction"/>
-        </methods>
-      </class> <!-- Intro -->
+      </class> <!-- JavaStreamsWithSelenium -->
     </classes>
   </test> <!-- MyTest(failed) -->
 </suite> <!-- Failed suite [Learnings] -->

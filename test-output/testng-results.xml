@@ -2,22 +2,22 @@
 <testng-results skipped="0" failed="0" ignored="3" total="5" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Learnings" duration-ms="26592" started-at="2021-01-14T15:00:16 PST" finished-at="2021-01-14T15:00:42 PST">
+  <suite name="Learnings" duration-ms="28641" started-at="2021-01-14T17:49:58 PST" finished-at="2021-01-14T17:50:27 PST">
     <groups>
       <group name="Regression">
         <method signature="JavaStreamsPractise.JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@6ebc05a6]" name="JavaStreamPractice" class="JavaStreamsPractise"/>
         <method signature="JavaStreamsWithSelenium.javaStream()[pri:0, instance:JavaStreamsWithSelenium@1dfe2924]" name="javaStream" class="JavaStreamsWithSelenium"/>
       </group> <!-- Regression -->
     </groups>
-    <test name="MyTest" duration-ms="26592" started-at="2021-01-14T15:00:16 PST" finished-at="2021-01-14T15:00:42 PST">
+    <test name="MyTest" duration-ms="28641" started-at="2021-01-14T17:49:58 PST" finished-at="2021-01-14T17:50:27 PST">
       <class name="JavaStreamsPractise">
-        <test-method status="PASS" signature="JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@6ebc05a6]" name="JavaStreamPractice" duration-ms="94" started-at="2021-01-14T15:00:16 PST" finished-at="2021-01-14T15:00:16 PST">
+        <test-method status="PASS" signature="JavaStreamPractice()[pri:0, instance:JavaStreamsPractise@6ebc05a6]" name="JavaStreamPractice" duration-ms="52" started-at="2021-01-14T17:49:58 PST" finished-at="2021-01-14T17:49:58 PST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- JavaStreamPractice -->
       </class> <!-- JavaStreamsPractise -->
       <class name="JavaStreamsWithSelenium">
-        <test-method status="PASS" signature="javaStream()[pri:0, instance:JavaStreamsWithSelenium@1dfe2924]" name="javaStream" duration-ms="26440" started-at="2021-01-14T15:00:16 PST" finished-at="2021-01-14T15:00:42 PST">
+        <test-method status="PASS" signature="javaStream()[pri:0, instance:JavaStreamsWithSelenium@1dfe2924]" name="javaStream" duration-ms="28477" started-at="2021-01-14T17:49:58 PST" finished-at="2021-01-14T17:50:27 PST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- javaStream -->

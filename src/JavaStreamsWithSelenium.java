@@ -1,7 +1,13 @@
 import org.testng.annotations.Test;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
@@ -13,13 +19,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class JavaStreamsWithSelenium {
 
 	@Test(groups= {"Regression"})
-	public static void javaStream() {
+	public static void javaStream() throws IOException {
 		// TODO Auto-generated method stub
 
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Selenium\\Drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-
-		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream("C:\\Users\\Somas\\My WorkSpace\\Recap\\src\\data.properties");
+		prop.load(fis);
+		
+		driver.get(prop.getProperty("url"));
 		String[] required = {"Cheese", "Rice", "Wheat"};
 		String filter = "Rice";
 		List<String> reqList = Arrays.asList(required);
@@ -59,6 +68,10 @@ public class JavaStreamsWithSelenium {
 			System.out.println("Filter is working Fine");
 		}else
 			System.out.println("Filter is NOT working");
+		
+		FileOutputStream fos = new FileOutputStream("C:\\Users\\Somas\\My WorkSpace\\Recap\\src\\data.properties");
+		prop.store(fos, null);
+		prop.setProperty("browser", "Chrome");
 		
 		driver.quit();
 	}
